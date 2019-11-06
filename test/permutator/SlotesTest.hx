@@ -8,10 +8,17 @@ import permutator.Slots;
 private class LogMediator implements SlotsMediator {
     
     public var size(default, null): Int;
+    public var columns(default, null): Int;
+
     var actions = new Array<String>();
 
-    public function new(size: Int) {
+    public function new(size: Int, columns: Int) {
         this.size = size;
+        this.columns = columns;
+    }
+
+    public function getColumns(): Int {
+        return columns;
     }
 
     public function getSize(): Int return size;
@@ -37,7 +44,7 @@ private class LogMediator implements SlotsMediator {
 class SlotesTest extends utest.Test {
 
     function testForDecrimentSize() {
-        var log = new LogMediator(1);
+        var log = new LogMediator(1, 1);
 
         Slots.remove(
             0,
@@ -50,8 +57,8 @@ class SlotesTest extends utest.Test {
         );
     }
 
-    function testRemoveFirstElement2times() {
-        var log = new LogMediator(2);
+    function testRemoveFirstElement2Times() {
+        var log = new LogMediator(2, 1);
 
         Slots.remove(
             0,
@@ -64,7 +71,17 @@ class SlotesTest extends utest.Test {
         );
 
         Assert.same(
-            ["remove 0","resize 1", "remove 0","resize 0"],
+            [
+                "remove 0",
+                
+                "move 1 0",
+
+                "resize 1",
+
+                "remove 0",
+
+                "resize 0"
+            ],
             log.getActions()
         );
     }
