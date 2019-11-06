@@ -1,0 +1,8 @@
+-p src
+-p test
+--main Main.hx
+-L utest
+--each
+
+--neko output/neko/test.n
+--cmd neko ./output/neko/test.n
