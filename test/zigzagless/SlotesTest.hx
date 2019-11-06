@@ -234,4 +234,57 @@ class SlotesTest extends utest.Test {
             log.getActions().join(",")
         );
     }
+
+    function testRemoveSecondElementFrom3RowsList() {
+        var log = new LogMediator(7, 3);
+
+        Slots.remove(
+            1,
+            log
+        );
+
+        Assert.same(
+            [
+                /*
+                    0 1 2
+                    3 4 5
+                    6 
+                */
+
+                "remove 1",
+                
+                /*
+                    0   2
+                    3 4 5
+                    6
+                */
+
+                "move 4 1",
+
+                /*
+                    0 4 2
+                    3   5
+                    6
+                */
+                
+                "move 3 4",
+
+                /*
+                    0 4 2
+                      3 5
+                    6
+                */
+
+                "move 6 3",
+
+                /*
+                    0 4 2
+                    6 3 5
+                */
+
+                "resize 6"
+            ].join(","),
+            log.getActions().join(",")
+        );
+    }
 }
