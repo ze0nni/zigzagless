@@ -39,7 +39,9 @@ class Slots {
         for (c in removedColumn...(columnsCount-1)) {
             var from = lastRow0 + c + 1;
             var to = lastRow0 + c;
-            mediator.move(from, to);
+            if (from < size) {
+                mediator.move(from, to);
+            }
         }
 
         mediator.resize(newSize);
