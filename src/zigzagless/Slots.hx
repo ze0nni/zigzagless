@@ -3,12 +3,12 @@ package zigzagless;
 class Slots {
     
     static public function remove(
-        index: Int,
-        mediator: SlotsMediator
+        columnsCount: Int,
+        mediator: SlotsMediator,
+        index: Int
     ) {
         var size = mediator.getSize();
 
-        var columnsCount = mediator.getColumns();
         var rowsCount = Math.ceil(size / columnsCount);
 
         var newSize = size - 1;

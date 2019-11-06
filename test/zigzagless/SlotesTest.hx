@@ -8,17 +8,11 @@ import zigzagless.Slots;
 private class LogMediator implements SlotsMediator {
     
     public var size(default, null): Int;
-    public var columns(default, null): Int;
 
     var actions = new Array<String>();
 
-    public function new(size: Int, columns: Int) {
+    public function new(size: Int) {
         this.size = size;
-        this.columns = columns;
-    }
-
-    public function getColumns(): Int {
-        return columns;
     }
 
     public function getSize(): Int return size;
@@ -44,11 +38,12 @@ private class LogMediator implements SlotsMediator {
 class SlotesTest extends utest.Test {
 
     function testForDecrimentSize() {
-        var log = new LogMediator(1, 1);
+        var log = new LogMediator(1);
 
         Slots.remove(
-            0,
-            log
+            1,
+            log,
+            0
         );
 
         Assert.same(
@@ -58,16 +53,18 @@ class SlotesTest extends utest.Test {
     }
 
     function testRemoveFirstElement2Times() {
-        var log = new LogMediator(2, 1);
+        var log = new LogMediator(2);
 
         Slots.remove(
-            0,
-            log
+            1,
+            log,
+            0
         );
 
         Slots.remove(
-            0,
-            log
+            1,
+            log,
+            0
         );
 
         Assert.same(
@@ -87,11 +84,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testForRemoveFirstElementIn2ColumnsList() {
-        var log = new LogMediator(4, 2);
+        var log = new LogMediator(4);
 
         Slots.remove(
-            0,
-            log
+            2,
+            log,
+            0
         );
 
         Assert.same(
@@ -129,11 +127,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testForRemoveFirstElementIn2ColumnsListWith3Elements() {
-        var log = new LogMediator(3, 2);
+        var log = new LogMediator(3);
 
         Slots.remove(
-            0,
-            log
+            2,
+            log,
+            0
         );
 
         Assert.same(
@@ -163,11 +162,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testForRemoveSecondElementIn2ColumnsList() {
-        var log = new LogMediator(4, 2);
+        var log = new LogMediator(4);
 
         Slots.remove(
-            1,
-            log
+            2,
+            log,
+            1
         );
 
         Assert.same(
@@ -198,11 +198,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testRemoveFirstElementFromLastRowIn3ColumnList() {
-        var log = new LogMediator(8, 3);
+        var log = new LogMediator(8);
 
         Slots.remove(
-            6,
-            log
+            3,
+            log,
+            6
         );
 
         Assert.same(
@@ -236,11 +237,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testRemoveSecondElementFrom3RowsList() {
-        var log = new LogMediator(7, 3);
+        var log = new LogMediator(7);
 
         Slots.remove(
-            1,
-            log
+            3,
+            log,
+            1
         );
 
         Assert.same(
@@ -289,11 +291,12 @@ class SlotesTest extends utest.Test {
     }
 
     function testRemoveSecondElementFrom3RowsListWithShiftLastRow() {
-        var log = new LogMediator(9, 3);
+        var log = new LogMediator(9);
 
         Slots.remove(
-            1,
-            log
+            3,
+            log,
+            1
         );
 
         Assert.same(
