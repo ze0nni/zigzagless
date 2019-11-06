@@ -52,8 +52,8 @@ class SlotesTest extends utest.Test {
         );
 
         Assert.same(
-            ["remove 0","resize 0"],
-            log.getActions()
+            ["remove 0","resize 0"].join(","),
+            log.getActions().join(",")
         );
     }
 
@@ -81,8 +81,50 @@ class SlotesTest extends utest.Test {
                 "remove 0",
 
                 "resize 0"
-            ],
-            log.getActions()
+            ].join(","),
+            log.getActions().join(",")
+        );
+    }
+
+    function testForRemoveFirstElementIn2ColumnsList() {
+        var log = new LogMediator(4, 2);
+
+        Slots.remove(
+            0,
+            log
+        );
+
+        Assert.same(
+            [
+                /*
+                    0 1
+                    2 3
+                */
+
+                "remove 0",
+                
+                /*
+                      1
+                    2 3
+                */
+
+                "move 2 0",
+
+                /*
+                    2 1
+                      3
+                */
+
+                "move 3 2",
+
+                /*
+                    2 1
+                    3
+                */
+
+                "resize 3"
+            ].join(","),
+            log.getActions().join(",")
         );
     }
 }
