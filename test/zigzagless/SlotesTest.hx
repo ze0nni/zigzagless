@@ -1,9 +1,9 @@
-package permutator;
+package zigzagless;
 
 import utest.Assert;
 import utest.Async;
 
-import permutator.Slots;
+import zigzagless.Slots;
 
 private class LogMediator implements SlotsMediator {
     

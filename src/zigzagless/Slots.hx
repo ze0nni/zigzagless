@@ -1,4 +1,4 @@
-package permutator;
+package zigzagless;
 
 interface SlotsMediator {
     function getSize(): Int;

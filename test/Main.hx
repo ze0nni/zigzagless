@@ -7,7 +7,7 @@ class Main {
 	public static function main() {
 		var runner = new Runner();
 		
-		runner.addCase(new permutator.SlotesTest());
+		runner.addCase(new zigzagless.SlotesTest());
 
 		Report.create(runner);
 		runner.run();
