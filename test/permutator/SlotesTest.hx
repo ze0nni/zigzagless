@@ -196,4 +196,42 @@ class SlotesTest extends utest.Test {
             log.getActions().join(",")
         );
     }
+
+    function testRemoveFirstElementFromLastRowIn3ColumnList() {
+        var log = new LogMediator(8, 3);
+
+        Slots.remove(
+            6,
+            log
+        );
+
+        Assert.same(
+            [
+                /*
+                    0 1 2
+                    3 4 5
+                    6 7
+                */
+
+                "remove 6",
+                
+                /*
+                    0 1 2
+                    3 4 5
+                      7
+                */
+
+                "move 7 6",
+
+                /*
+                    0 1 2
+                    3 4 5
+                    7
+                */
+                
+                "resize 7"
+            ].join(","),
+            log.getActions().join(",")
+        );
+    }
 }
