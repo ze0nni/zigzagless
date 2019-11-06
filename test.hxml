@@ -2,6 +2,7 @@
 -p test
 --main Main.hx
 -L utest
+-L json2object
 --each
 
 --neko output/neko/test.n
