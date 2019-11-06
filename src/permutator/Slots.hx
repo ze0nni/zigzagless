@@ -14,6 +14,6 @@ class Slots {
         mediator: SlotsMediator
     ) {
         mediator.remove(index);
-        mediator.resize(index);
+        mediator.resize(mediator.getSize() - 1);
     }
 }

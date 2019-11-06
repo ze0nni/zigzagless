@@ -36,7 +36,7 @@ private class LogMediator implements SlotsMediator {
 
 class SlotesTest extends utest.Test {
 
-    function testRemoveOneElement() {
+    function testForDecrimentSize() {
         var log = new LogMediator(1);
 
         Slots.remove(
@@ -50,4 +50,22 @@ class SlotesTest extends utest.Test {
         );
     }
 
+    function testRemoveFirstElement2times() {
+        var log = new LogMediator(2);
+
+        Slots.remove(
+            0,
+            log
+        );
+
+        Slots.remove(
+            0,
+            log
+        );
+
+        Assert.same(
+            ["remove 0","resize 1", "remove 0","resize 0"],
+            log.getActions()
+        );
+    }
 }
