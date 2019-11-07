@@ -42,6 +42,9 @@ class Slots {
                 mediator.move(from, to);
             }
 
+            // now hole at start of next line
+            //not need holeY += 1;
+
             // Pop element form bottom row
             var nextRow0 = row0 + columnsCount;
             if (nextRow0 < size) {
@@ -62,4 +65,6 @@ class Slots {
 
         mediator.resize(newSize);
     }
+
+
 }
