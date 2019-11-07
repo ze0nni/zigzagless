@@ -18,7 +18,7 @@ class Slots {
         mediator.remove(index);
 
         // move hole bottom 
-        for (y in holeY...rowsCount) {
+        for (y in holeY...(rowsCount-1)) {
             var to = y * columnsCount + holeX;
             var from = to + columnsCount;
             if (from >= size) {
@@ -26,6 +26,17 @@ class Slots {
             }
             mediator.move(from, to);
             holeY = y;
+        }
+
+        // move last rows elements fo left
+        var lastRow0 = (rowsCount - 1) * columnsCount;
+        for (x in holeX...(columnsCount-1)) {
+            var to = lastRow0 + x;
+            var from = to + 1;
+            if (from >= size) {
+                break;
+            }
+            mediator.move(from, to);
         }
 
         mediator.resize(newSize);

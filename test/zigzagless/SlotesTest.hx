@@ -69,13 +69,36 @@ class SlotesTest extends utest.Test {
 
         Assert.same(
             [
+                /*
+                    - 0
+                    - 1
+                */
+
                 "remove 0",
+
+                /*
+                    -
+                    - 1
+                */
                 
                 "move 1 0",
 
+                /*
+                    - 1
+                    - 
+                */
+
                 "resize 1",
 
+                /*
+                    - 1
+                */
+
                 "remove 0",
+
+                /*
+                    - 
+                */
 
                 "resize 0"
             ].join(","),
