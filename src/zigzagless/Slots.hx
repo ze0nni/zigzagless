@@ -25,12 +25,13 @@ class Slots {
                 break;
             }
             mediator.move(from, to);
-            holeY = y;
+            holeY = y + 1;
+        }
         }
 
-        // move last rows elements fo left
-        var lastRow0 = (rowsCount - 1) * columnsCount;
-        for (x in holeX...(columnsCount-1)) {
+        // if last row reached just move elements to left
+        var lastRow0 = lastRow * columnsCount;
+        for (x in holeX...columnsCount) {
             var to = lastRow0 + x;
             var from = to + 1;
             if (from >= size) {
