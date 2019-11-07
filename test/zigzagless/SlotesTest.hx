@@ -344,4 +344,47 @@ class SlotesTest extends utest.Test {
             log.getActions().join(",")
         );
     }
+
+    function testRemoveSecondElementForm2ColimenListWith3Elements() {
+        var log = new LogMediator(3);
+
+        Slots.remove(
+            2,
+            log,
+            1
+        );
+
+
+        Assert.same(
+            [
+                /*
+                    0 1
+                    2
+                */
+
+                "remove 1",
+                
+                /*
+                    0 
+                    2
+                */
+
+                "move 0 1",
+                
+                /*
+                      0
+                    2
+                */
+
+                "move 2 0",
+                
+                /*
+                    2 0 
+                */
+
+                "resize 2"
+            ].join(","),
+            log.getActions().join(",")
+        );
+    }
 }
