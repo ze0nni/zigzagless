@@ -33,7 +33,7 @@ private class LogMediator implements SlotsMediator {
     }
 }
 
-class SlotesTest extends utest.Test {
+class SlotsToolTest extends utest.Test {
 
     function testForDecrimentSize() {
         var log = new LogMediator(1);
