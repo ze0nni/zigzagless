@@ -388,7 +388,7 @@ class SlotesTest extends utest.Test {
         );
     }
 
-    function testRemoveLastElementFrom2x2List {
+    function testRemoveLastElementFrom2x2List() {
         var log = new LogMediator(4);
 
         Slots.remove(
