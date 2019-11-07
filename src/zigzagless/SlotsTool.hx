@@ -1,6 +1,6 @@
 package zigzagless;
 
-class Slots {
+class SlotsTool {
     
     static public function remove(
         columnsCount: Int,

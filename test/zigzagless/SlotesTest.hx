@@ -3,8 +3,6 @@ package zigzagless;
 import utest.Assert;
 import utest.Async;
 
-import zigzagless.Slots;
-
 private class LogMediator implements SlotsMediator {
     
     public var size(default, null): Int;
@@ -40,7 +38,7 @@ class SlotesTest extends utest.Test {
     function testForDecrimentSize() {
         var log = new LogMediator(1);
 
-        Slots.remove(
+        SlotsTool.remove(
             1,
             log,
             0
@@ -55,13 +53,13 @@ class SlotesTest extends utest.Test {
     function testRemoveFirstElement2Times() {
         var log = new LogMediator(2);
 
-        Slots.remove(
+        SlotsTool.remove(
             1,
             log,
             0
         );
 
-        Slots.remove(
+        SlotsTool.remove(
             1,
             log,
             0
@@ -109,7 +107,7 @@ class SlotesTest extends utest.Test {
     function testForRemoveFirstElementIn2ColumnsList() {
         var log = new LogMediator(4);
 
-        Slots.remove(
+        SlotsTool.remove(
             2,
             log,
             0
@@ -152,7 +150,7 @@ class SlotesTest extends utest.Test {
     function testForRemoveFirstElementIn2ColumnsListWith3Elements() {
         var log = new LogMediator(3);
 
-        Slots.remove(
+        SlotsTool.remove(
             2,
             log,
             0
@@ -187,7 +185,7 @@ class SlotesTest extends utest.Test {
     function testForRemoveSecondElementIn2ColumnsList() {
         var log = new LogMediator(4);
 
-        Slots.remove(
+        SlotsTool.remove(
             2,
             log,
             1
@@ -223,7 +221,7 @@ class SlotesTest extends utest.Test {
     function testRemoveFirstElementFromLastRowIn3ColumnList() {
         var log = new LogMediator(8);
 
-        Slots.remove(
+        SlotsTool.remove(
             3,
             log,
             6
@@ -262,7 +260,7 @@ class SlotesTest extends utest.Test {
     function testRemoveSecondElementFrom3RowsList() {
         var log = new LogMediator(7);
 
-        Slots.remove(
+        SlotsTool.remove(
             3,
             log,
             1
@@ -316,7 +314,7 @@ class SlotesTest extends utest.Test {
     function testRemoveSecondElementFrom3RowsListWithShiftLastRow() {
         var log = new LogMediator(9);
 
-        Slots.remove(
+        SlotsTool.remove(
             3,
             log,
             1
@@ -371,7 +369,7 @@ class SlotesTest extends utest.Test {
     function testRemoveSecondElementForm2ColimenListWith3Elements() {
         var log = new LogMediator(3);
 
-        Slots.remove(
+        SlotsTool.remove(
             2,
             log,
             1
@@ -414,7 +412,7 @@ class SlotesTest extends utest.Test {
     function testRemoveLastElementFrom2x2List() {
         var log = new LogMediator(4);
 
-        Slots.remove(
+        SlotsTool.remove(
             2,
             log,
             3
@@ -444,7 +442,7 @@ class SlotesTest extends utest.Test {
     function testRemoveLastColumnElementFrom3RowsListWith8Items() {
         var log = new LogMediator(8);
 
-        Slots.remove(
+        SlotsTool.remove(
             3,
             log,
             5
